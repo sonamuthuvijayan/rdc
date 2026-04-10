@@ -105,6 +105,87 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,4vw,30px);f
   .two-col,.principle-row,.impact-grid,.img-grid,.photo-grid{grid-template-columns:1fr}
   .code-row{gap:1rem}
 }
+
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  
+  body { background: #fff !important; padding: 0 !important; }
+  
+  .page {
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0.5in 0.6in !important;
+    margin: 0 !important;
+  }
+
+  /* Never break inside these elements */
+  .what-box,
+  .code-callout,
+  .impact-banner,
+  .two-col,
+  .card,
+  .principle,
+  .evidence-block,
+  .rendering-section,
+  .photos-section,
+  .cta-box,
+  .impact-item,
+  .bridge {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Force page breaks before major sections */
+  .photos-section {
+    page-break-before: always !important;
+    break-before: always !important;
+  }
+
+  /* Keep section labels with their content */
+  .section-label {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Keep headings with following content */
+  h1, h2, h3 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Images should not break */
+  img {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    max-width: 100% !important;
+  }
+
+  /* Keep two-col cards together */
+  .two-col {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Keep principle row together */
+  .principle-row {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* CTA always starts fresh if needed */
+  .cta-box {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Don't show copy button when printing */
+  .copy-btn, .copied-msg { display: none !important; }
+
+  /* Slightly reduce font sizes for better print fit */
+  .page { font-size: 13px !important; }
+  h1 { font-size: 22px !important; }
+}
 </style>
 </head>
 <body>
@@ -262,7 +343,7 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,4vw,30px);f
     <p class="cta-intro">Send the message below to ask the board to remove this architectural restriction. Every response matters and the more homeowners who speak up, the harder this is to ignore.</p>
     <div class="cta-meta">
       <div class="cta-to">Send to</div>
-      <div class="cta-addr">cs@communityfirstpm.com</div>
+      <div class="cta-addr">cs&#64;communityfirstpm&#46;com</div>
       <div class="cta-subj">Subject: RDC - Feedback on window restriction in architectural application form</div>
       <div class="cta-deadline">Deadline: April 30, 2026</div>
     </div>
@@ -280,6 +361,4 @@ Please reconsider or remove this proposed change.</div>
   </div>
 
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function copyEmail(){
-  var t=document.getElementById('email-text')
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd72
