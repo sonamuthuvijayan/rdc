@@ -69,18 +69,18 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,4vw,30px);f
 .principle-title{font-size:12px;font-weight:600;color:#333;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em}
 .principle p{font-size:13px;color:#666;line-height:1.5}
 
-.cta-box{background:#1a1a1a;border-radius:10px;padding:1.5rem;color:#fff;margin-top:1.25rem}
-.cta-box .cta-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#aaa;margin-bottom:6px}
-.cta-box h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.cta-box{background:#f4f4f0;border-radius:10px;padding:1.5rem;color:#1a1a1a;margin-top:1.25rem;border:0.5px solid #cccccc}
+.cta-box .cta-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#888;margin-bottom:6px}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px}
 .cta-box .cta-intro{font-size:14px;color:#ccc;line-height:1.6;margin-bottom:16px}
 .cta-meta{margin-bottom:14px}
-.cta-meta .cta-to{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:4px}
+.cta-meta .cta-to{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#666;margin-bottom:4px}
 .cta-meta .cta-addr{font-size:16px;font-weight:600;color:#7ec8a0;margin-bottom:3px}
-.cta-meta .cta-subj{font-size:13px;color:#aaa}
-.cta-meta .cta-deadline{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#fff;background:#3a3a3a;border-radius:4px;padding:4px 12px;border:0.5px solid #555}
-.email-template{background:#2a2a2a;border-radius:6px;padding:14px 16px;font-size:14px;color:#e8e8e8;line-height:1.8;margin-bottom:14px;white-space:pre-wrap;font-family:'Source Sans 3',sans-serif;border:0.5px solid #444}
+.cta-meta .cta-subj{font-size:13px;color:#555}
+.cta-meta .cta-deadline{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#1a1a1a;background:#e8e8e0;border-radius:4px;padding:4px 12px;border:0.5px solid #999}
+.email-template{background:#ffffff;border-radius:6px;padding:14px 16px;font-size:14px;color:#333;line-height:1.8;margin-bottom:14px;white-space:pre-wrap;font-family:'Source Sans 3',sans-serif;border:0.5px solid #ccc}
 .copy-btn{padding:8px 18px;font-size:13px;cursor:pointer;border-radius:6px;border:0.5px solid #555;background:transparent;color:#ccc;font-family:'Source Sans 3',sans-serif}
-.copy-btn:hover{background:#333}
+.copy-btn:hover{background:#e8e8e0}
 .copied-msg{color:#7ec8a0;font-size:13px;margin-left:10px;display:none}
 
 /* ── Consistent type scale ───────────────────────────────────────
@@ -107,84 +107,79 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,4vw,30px);f
 }
 
 @media print {
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  
-  body { background: #fff !important; padding: 0 !important; }
-  
+  @page { size: letter; margin: 0.6in 0.65in; }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body { background: #fff !important; padding: 0 !important; margin: 0 !important; }
+
   .page {
     max-width: 100% !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-    padding: 0.5in 0.6in !important;
+    padding: 0 !important;
     margin: 0 !important;
   }
 
-  /* Never break inside these elements */
+  /* ── Never break inside these ── */
   .what-box,
   .code-callout,
+  .code-callout .code-row,
   .impact-banner,
-  .two-col,
-  .card,
-  .principle,
-  .evidence-block,
-  .rendering-section,
-  .photos-section,
-  .cta-box,
   .impact-item,
-  .bridge {
+  .impact-grid,
+  .card,
+  .two-col,
+  .principle,
+  .principle-row,
+  .evidence-block,
+  .evidence-img-wrap,
+  .rendering-section,
+  .img-grid,
+  .img-wrap,
+  .callout-pills,
+  .cta-box,
+  .cta-meta,
+  .bridge,
+  .email-template {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  /* Force page breaks before major sections */
-  .photos-section {
-    page-break-before: always !important;
-    break-before: always !important;
-  }
-
-  /* Keep section labels with their content */
-  .section-label {
-    page-break-after: avoid !important;
-    break-after: avoid !important;
-  }
-
-  /* Keep headings with following content */
+  /* ── Keep labels with their section ── */
+  .section-label,
+  .top-label,
+  .card .card-label,
   h1, h2, h3 {
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
 
-  /* Images should not break */
+  /* ── Appendix always on its own page ── */
+  .photos-section {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  /* ── Images stay whole ── */
   img {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     max-width: 100% !important;
   }
 
-  /* Keep two-col cards together */
-  .two-col {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  /* Keep principle row together */
-  .principle-row {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  /* CTA always starts fresh if needed */
-  .cta-box {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-
-  /* Don't show copy button when printing */
+  /* ── Hide interactive elements ── */
   .copy-btn, .copied-msg { display: none !important; }
 
-  /* Slightly reduce font sizes for better print fit */
+  /* ── Slightly tighten spacing for print ── */
   .page { font-size: 13px !important; }
-  h1 { font-size: 22px !important; }
+  h1 { font-size: 22px !important; line-height: 1.2 !important; }
+  .divider { margin: 0.8rem 0 !important; }
+  .what-box, .code-callout, .impact-banner { margin-bottom: 0.9rem !important; }
+  .two-col, .principle-row { margin-bottom: 0.9rem !important; }
 }
 </style>
 </head>
@@ -258,6 +253,7 @@ h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(20px,4vw,30px);f
       <span class="pill">Subtle size difference only</span>
       
     </div>
+    <p style="font-size:14px;line-height:1.65;color:#333;margin-top:1rem;">Yet rather than reviewing this thoughtful proposal on its merits, a blanket restriction is being introduced that would permanently prevent any homeowner from making a similar modification in the future.</p>
   </div>
 
   <div class="two-col">
